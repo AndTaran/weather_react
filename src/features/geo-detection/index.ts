@@ -1,0 +1,1 @@
+export {GeoDetection} from './ui/geo-detection'
