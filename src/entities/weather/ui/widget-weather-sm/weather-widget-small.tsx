@@ -2,7 +2,7 @@ import React from "react";
 import './weather-widget-small.css'
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import {WeatherInfo, WeatherTypes} from "../../model/types";
+import {WeatherInfo} from "../../model/types";
 
 type WeatherInfoProps = Pick<WeatherInfo, "cityName" | "icon" | "temp">
 // type WeatherInfoProps2 = Pick<WeatherTypes, "weather" | "main" | "name">
