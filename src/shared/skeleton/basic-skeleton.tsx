@@ -7,9 +7,11 @@ interface ISkeletonProps {
 
 export function BasicSkeleton({width, height}: ISkeletonProps) {
     return (
-        <Skeleton variant="rounded"
-                  animation="wave"
-                  width={width}
-                  height={height}/>
+        <Skeleton
+            variant="rounded"
+            animation="wave"
+            width={width}
+            height={height}
+        />
     )
 }

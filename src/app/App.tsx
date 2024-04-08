@@ -17,8 +17,6 @@ export default function App() {
             <Container>
                 {email === "" ? (<AuthPage/>) : (<WeatherPage/>)}
             </Container>
-
-
         </Box>
     );
 }

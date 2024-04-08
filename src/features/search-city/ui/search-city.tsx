@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {fetchCityLatLon} from "../../../entities/city/api/fetchCityLatLon";
 import {addCityLat, addCityLon, addCityName, changeEmptyCity} from "../../../entities/city/model/city-slice";
-import {ChangeEvent, KeyboardEvent} from "react";
+import {ChangeEvent, KeyboardEvent, useState} from "react";
 import {EmptyCity} from "../../../entities/city/model/types";
 import {useAppDispatch, useAppSelector} from "../../../app/hooks";
 
@@ -14,6 +14,7 @@ export function SearchCity() {
     const dispatch = useAppDispatch()
     const cityName = useAppSelector((state) => state.city.cityName)
     const emptyCity = useAppSelector((state) => state.city.emptyCity)
+    const [error, setError] = useState<string>("")
 
     const handleCityChange = (event: ChangeEvent<HTMLInputElement>) => {
         // Проблема - при каждом добавлении символа в поле выполняется ререндер
@@ -22,6 +23,7 @@ export function SearchCity() {
     }
     const handleKeyPress = (event: KeyboardEvent) => {
         if (event.key === 'Enter' || event.type === "click") {
+            setError("")
             if (cityName !== '') {
                 fetchCityLatLon(cityName, API_KEY)
                     .then(response => {
@@ -30,8 +32,8 @@ export function SearchCity() {
                         dispatch(changeEmptyCity(EmptyCity.found))
                     })
                     .catch(reportError => {
-                        console.warn('Ошибка при поиске города', reportError)
                         dispatch(changeEmptyCity(EmptyCity.notFound))
+                        setError(reportError.message)
                     })
                     .finally(() => {
                         dispatch(addCityName(''))
@@ -47,8 +49,8 @@ export function SearchCity() {
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
-                m={2}
-            >
+                m={2}>
+                
                 <Box mb={1}>
                     <InputSearch
                         value={cityName}
@@ -65,10 +67,10 @@ export function SearchCity() {
             </Box>
             {emptyCity === EmptyCity.notFound &&
                 <Typography
-                    component="h4"
+                    component="h5"
                     textAlign='center'
-                    variant="h4">
-                    Город не найден...
+                    variant="h5">
+                    {error !== "" ? error : "Город не найден..."}
                 </Typography>
             }
         </Box>

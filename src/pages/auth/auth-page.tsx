@@ -5,11 +5,9 @@ import Box from "@mui/material/Box";
 
 export default function AuthPage() {
     return (
-        <>
-            <Box display="flex" justifyContent="space-around">
-                <SignUp/>
-                <SignIn/>
-            </Box>
-        </>
+        <Box display="flex" justifyContent="space-around">
+            <SignUp/>
+            <SignIn/>
+        </Box>
     )
 }

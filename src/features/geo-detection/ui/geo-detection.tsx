@@ -37,14 +37,12 @@ export function GeoDetection() {
     return (
         <Box textAlign="center">
             <Typography
-                component="h4"
-                variant="h4">
+                variant="h5">
                 Введите город
             </Typography>
             <Box>
                 <Typography
-                    component="h4"
-                    variant="h4">
+                    variant="h5">
                     или
                 </Typography>
                 <BasicButton funcOnClick={getCurrentPosition}

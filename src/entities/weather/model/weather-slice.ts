@@ -34,7 +34,6 @@ export const weatherSlice = createSlice({
     initialState,
     reducers: {
         addWeather: (state, action: PayloadAction<object>) => {
-            // @ts-ignore
             state.initialState = action.payload
         }
     },
