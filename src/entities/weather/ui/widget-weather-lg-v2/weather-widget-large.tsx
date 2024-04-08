@@ -1,7 +1,5 @@
 import React from "react";
 import './weather-widget-large.css'
-// @ts-ignore
-import styles from "./styles.module.css"
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {OptionsDate} from "../../model/types";

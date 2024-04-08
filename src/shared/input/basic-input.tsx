@@ -2,14 +2,25 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import {ChangeEvent} from "react";
 
-interface ISearchInputProps {
+interface IInputProps {
     value: string,
     handleFuncChange: (event: ChangeEvent<HTMLInputElement>) => void,
     handleKeyPress?: (event: any) => void,
-    placeholder: string
+    placeholder: string,
+    label?: string,
+    name?: string
+    type?: string
+    autoComplete?: string
 }
 
-export default function InputSearch({value, handleFuncChange, handleKeyPress, placeholder}: ISearchInputProps) {
+export default function BasicInput({
+                                       value,
+                                       handleFuncChange,
+                                       handleKeyPress,
+                                       placeholder,
+                                       ...restProps
+                                   }: IInputProps) {
+
     return (
         <Box>
             <TextField id="outlined-basic"
@@ -18,7 +29,8 @@ export default function InputSearch({value, handleFuncChange, handleKeyPress, pl
                        value={value}
                        onChange={handleFuncChange}
                        onKeyDown={handleKeyPress}
-                       label='Город'/>
+                       {...restProps}
+            />
         </Box>
     )
 }

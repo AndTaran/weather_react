@@ -5,9 +5,9 @@ import MainTitle from "../../../shared/title/main-title";
 import {useAppDispatch} from "../../../app/hooks";
 import {addUserEmail} from "../../../entities/user/model/user-slice";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import BasicInput from "../../../shared/input/basic-input";
+import BasicButton from "../../../shared/button/basic-button";
 
 export const SignUp = () => {
     const dispatch = useAppDispatch();
@@ -41,43 +41,39 @@ export const SignUp = () => {
     }
 
     return (
-        <>
-            <Box component="form"
-                // onSubmit={register}
-            >
-                <MainTitle title="Регистрация"/>
-                <Box mb={2}>
-                    <TextField
-                        placeholder="Введите email*"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        type="email"
-                        autoComplete="new-password"
-                    />
-                </Box>
-                <Box mb={2}>
-                    <TextField
-                        placeholder="Введите пароль*"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        type="password"
-                        autoComplete={"new-password"}
-                    />
-                </Box>
-                <Box mb={2}>
-                    <TextField
-                        placeholder="Повторите пароль*"
-                        value={copyPassword}
-                        onChange={(e) => setCopyPassword(e.target.value)}
-                        type="password"
-                        autoComplete={"new-password"}
-                    />
-                </Box>
-                <Button variant="contained"
-                        size="large"
-                        onClick={register}>Регистрация</Button>
-                {error ? <Typography maxWidth={223} color={"red"}>{error}</Typography> : ""}
+        <Box component="form">
+            <MainTitle title="Регистрация"/>
+            <Box mb={2}>
+                <BasicInput
+                    placeholder="Введите email"
+                    value={email}
+                    handleFuncChange={(e) => setEmail(e.target.value)}
+                    type={"email"}
+                    autoComplete={"username"}
+                />
             </Box>
-        </>
+            <Box mb={2}>
+                <BasicInput
+                    placeholder="Введите пароль"
+                    value={password}
+                    handleFuncChange={(e) => setPassword(e.target.value)}
+                    type={"password"}
+                    autoComplete={"new-password"}
+                />
+            </Box>
+            <Box mb={2}>
+                <BasicInput
+                    placeholder="Повторите пароль"
+                    value={copyPassword}
+                    handleFuncChange={(e) => setCopyPassword(e.target.value)}
+                    type="password"
+                    autoComplete={"new-password"}
+                />
+            </Box>
+            <BasicButton
+                funcOnClick={register}
+                btnName={"Регистрация"}/>
+            {error ? <Typography maxWidth={223} color={"red"}>{error}</Typography> : ""}
+        </Box>
     );
 }

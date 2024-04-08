@@ -1,5 +1,5 @@
 import MainTitle from "../../../shared/title/main-title";
-import InputSearch from "../../../shared/input/input-search";
+import BasicInput from "../../../shared/input/basic-input";
 import BasicButton from "../../../shared/button/basic-button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -33,7 +33,7 @@ export function SearchCity() {
                     })
                     .catch(reportError => {
                         dispatch(changeEmptyCity(EmptyCity.notFound))
-                        setError(reportError.message)
+                        // setError(reportError.message)
                     })
                     .finally(() => {
                         dispatch(addCityName(''))
@@ -50,10 +50,11 @@ export function SearchCity() {
                 flexDirection="column"
                 alignItems="center"
                 m={2}>
-                
+
                 <Box mb={1}>
-                    <InputSearch
+                    <BasicInput
                         value={cityName}
+                        label={"Город"}
                         handleFuncChange={handleCityChange}
                         handleKeyPress={handleKeyPress}
                         placeholder={"Введите город"}

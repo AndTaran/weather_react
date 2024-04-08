@@ -9,6 +9,7 @@
     padding: 10px;
     width: 220px;
     height: 220px;
+    box-shadow: 3px 8px 10px #a9a8a8;
 }
 
 .widget_temp {
