@@ -2,6 +2,7 @@ import React from "react";
 import './weather-widget-large.css'
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Divider from '@mui/material/Divider'
 import {OptionsDate} from "../../model/types";
 import {WeatherInfo} from "../../model/types";
 
@@ -30,9 +31,10 @@ export const WeatherWidgetLargeV2 = React.memo(
 
         return (
             <Box className="main">
-                <Typography className="location" component="p"
-                    // @ts-ignore
-                            variant="p">{`${cityName}, ${country}`}</Typography>
+                <Typography className="location"
+                            variant="h5">
+                    {`${cityName}, ${country}`}
+                </Typography>
                 <Box>
                     <Typography className="date">
                         {currentDate}
@@ -44,56 +46,45 @@ export const WeatherWidgetLargeV2 = React.memo(
                         alt="иконка погоды"/>
                 </Box>
                 <Box className="weather-temp">
-                    <Typography component="p"
-                        // @ts-ignore
-                                variant="p">{Math.round(temp)}&deg;</Typography>
+                    <Typography
+                        variant="inherit">
+                        {Math.round(temp)}&deg;
+                    </Typography>
 
                 </Box>
                 <Box>
                     <Typography
                         className="temp_description"
-                        component="p"
-                        // @ts-ignore
-                        variant="p">
+                        variant="inherit">
                         {weatherDescription}
                     </Typography>
                 </Box>
 
-
-                <Box
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    textAlign="center"
-                >
-                    <Box>
-
-                    </Box>
-                </Box>
-
-                <hr/>
+                <Divider aria-hidden="true" sx={{m: 1}}/>
                 <Typography className="feels_like"
-                    // @ts-ignore
-                            variant="p" component="p">
+                            variant="inherit">
                     Ощущается как: {Math.round(feelsLike)}&deg;
                 </Typography>
                 <Box display="flex" justifyContent='space-between'>
                     <Box textAlign='left'>
-                        <Typography component="p"
-                            // @ts-ignore
-                                    variant="p">Мин: {Math.round(tempMin)}&deg;</Typography>
-                        <Typography component="p"
-                            // @ts-ignore
-                                    variant="p">Макс: {Math.round(tempMax)}&deg;</Typography>
+                        <Typography
+                            variant="inherit">
+                            Мин: {Math.round(tempMin)}&deg;
+                        </Typography>
+                        <Typography
+                            variant="inherit">
+                            Макс: {Math.round(tempMax)}&deg;
+                        </Typography>
                     </Box>
                     <Box textAlign='left'>
-                        <Typography component="p"
-                            // @ts-ignore
-                                    variant="p">Скорость
-                            ветра: {Math.round(windSpeed)} km/h</Typography>
-                        <Typography component="p"
-                            // @ts-ignore
-                                    variant="p">Влажность: {humidity} %</Typography>
+                        <Typography
+                            variant="inherit">
+                            Скорость ветра: {Math.round(windSpeed)} km/h
+                        </Typography>
+                        <Typography
+                            variant="inherit">
+                            Влажность: {humidity} %
+                        </Typography>
                     </Box>
                 </Box>
             </Box>

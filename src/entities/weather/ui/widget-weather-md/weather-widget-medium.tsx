@@ -19,33 +19,33 @@ export const WeatherWidgetMedium = React.memo(
                 </Box>
                 <Box className="weatherInfo">
                     <Typography
-                        component="span"
-                        // @ts-ignore
-                        variant={"p"}
+                        variant="inherit"
                         className="temperature">
                         <span>{Math.round(temp)}&deg;</span>
                     </Typography>
                     <Box className="description">
-                        <Typography component="p"
-                            // @ts-ignore
-                                    variant="p"
-                                    className="weatherCondition">
+                        <Typography
+                            variant="inherit"
+                            className="weatherCondition">
                             {weatherDescription}
                         </Typography>
                         <Typography
-                            // @ts-ignore
-                            variant="p" component="p" className="place">
+                            variant="inherit"
+                            className="place">
                             {cityName}
                         </Typography>
                     </Box>
                 </Box>
                 <Box className="date">
                     <Typography
-                        // @ts-ignore
-                        variant="p" component="p">{`${month}`}</Typography>
+                        variant="inherit">
+                        {`${month}`}
+                    </Typography>
                     <Typography
-                        // @ts-ignore
-                        variant="p" component="p" className="date">{`${date.getDate()}`}</Typography>
+                        variant="inherit"
+                        className="date">
+                        {`${date.getDate()}`}
+                    </Typography>
                 </Box>
             </Box>
         )

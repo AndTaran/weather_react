@@ -4,7 +4,7 @@
     justify-content: space-between;
     color: #BABABA;
     background-color: #FFFFFF;
-    border-radius: 18px;
+    border-radius: 20px;
     border: solid 1px #FFFFFF;
     padding: 10px;
     width: 220px;
@@ -12,14 +12,10 @@
     box-shadow: 3px 8px 10px #a9a8a8;
 }
 
-.widget_temp {
-    display: flex;
-    justify-content: space-between;
+.widget_icon {
     align-self: end;
 }
 
 .city_name {
     text-transform: uppercase;
-    font-weight: 300;
-    font-size: 22px;
 }
