@@ -6,16 +6,16 @@ export type OptionsDate = {
 }
 
 export type WeatherInfo = {
-    icon: string,
-    temp: number,
-    cityName: string,
-    country: string,
-    weatherDescription: string,
-    feelsLike: number,
-    tempMin: number,
-    tempMax: number,
-    windSpeed: number,
-    humidity: number
+    icon: string | null,
+    temp: number | null,    
+    cityName: string | null,
+    country: string | null,
+    weatherDescription: string | null,
+    feelsLike: number | null,
+    tempMin: number | null,
+    tempMax: number | null,
+    windSpeed: number | null,
+    humidity: number | null,
 }
 
 export type WeatherTypes = {

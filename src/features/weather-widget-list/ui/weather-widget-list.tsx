@@ -20,7 +20,7 @@ export function WeatherWidgetList() {
     const dispatch = useAppDispatch()
     const cityLat = useAppSelector((state) => state.city.lat)
     const cityLon = useAppSelector((state) => state.city.lon)
-    const weatherInfo = useAppSelector((state) => state.weather.initialState)
+    const weatherInfo = useAppSelector((state) => state.weather.weatherData)
     const [tabValue, setTabValue] = React.useState<string>('lg');
     const [error, setError] = useState<string>("")
 
