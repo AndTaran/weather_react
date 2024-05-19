@@ -7,12 +7,14 @@ import { WeatherInfo } from "../../model/types";
 type WeatherInfoProps = Pick<WeatherInfo, "cityName" | "icon" | "temp">;
 
 export const WeatherWidgetSmall = React.memo(({ icon, temp, cityName }: WeatherInfoProps) => {
+	const formattedTemp = Math.round(temp as number);
+
 	return (
 		<Box className='small_widget'>
 			<Box className='widget_icon'>
 				<img
 					src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
-					alt='иконка погоды'
+					alt='Weather icon'
 				/>
 			</Box>
 			<Box
@@ -20,7 +22,7 @@ export const WeatherWidgetSmall = React.memo(({ icon, temp, cityName }: WeatherI
 				flexDirection='column'
 				className='widget_info'
 			>
-				<Typography variant='h4'>{Math.round(temp as number)}&deg;</Typography>
+				<Typography variant='h4'>{formattedTemp}°</Typography>
 				<Typography
 					variant='inherit'
 					className='city_name'

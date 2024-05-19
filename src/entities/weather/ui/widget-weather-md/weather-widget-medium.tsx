@@ -5,10 +5,12 @@ import Typography from "@mui/material/Typography";
 import { WeatherInfo } from "../../model/types";
 
 type WeatherInfoProps = Pick<WeatherInfo, "cityName" | "icon" | "temp" | "weatherDescription">;
+
 export const WeatherWidgetMedium = React.memo(
 	({ icon, temp, weatherDescription, cityName }: WeatherInfoProps) => {
 		const date: Date = new Date();
 		const month: string = date.toLocaleString("ru-RU", { month: "long" });
+		const formattedTemp = Math.round(temp as number);
 
 		return (
 			<Box className='widget'>
@@ -24,7 +26,7 @@ export const WeatherWidgetMedium = React.memo(
 						variant='inherit'
 						className='temperature'
 					>
-						<span>{Math.round(temp as number)}&deg;</span>
+						<span>{formattedTemp}&deg;</span>
 					</Typography>
 					<Box className='description'>
 						<Typography
@@ -42,13 +44,8 @@ export const WeatherWidgetMedium = React.memo(
 					</Box>
 				</Box>
 				<Box className='date'>
-					<Typography variant='inherit'>{`${month}`}</Typography>
-					<Typography
-						variant='inherit'
-						className='date'
-					>
-						{`${date.getDate()}`}
-					</Typography>
+					<Typography variant='inherit'>{month}</Typography>
+					<Typography variant='inherit'>{date.getDate()}</Typography>
 				</Box>
 			</Box>
 		);
