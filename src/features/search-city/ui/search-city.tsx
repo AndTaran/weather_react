@@ -4,12 +4,7 @@ import BasicButton from "../../../shared/button/basic-button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { fetchCityLatLon } from "../../../entities/city/api/fetchCityLatLon";
-import {
-	addCityLat,
-	addCityLon,
-	addCityName,
-	changeEmptyCity,
-} from "../../../entities/city/model/city-slice";
+import { addCityLat, addCityLon, addCityName, changeEmptyCity } from "../../../entities/city/model/city-slice";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { EmptyCity } from "../../../entities/city/model/types";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
@@ -55,7 +50,10 @@ export function SearchCity() {
 				alignItems='center'
 				m={2}
 			>
-				<Box mb={1}>
+				<Box
+					mb={1}
+					className='search-city'
+				>
 					<BasicInput
 						value={cityName}
 						label={"Город"}
@@ -64,7 +62,10 @@ export function SearchCity() {
 						placeholder={"Введите город"}
 					/>
 				</Box>
-				<Box mb={1}>
+				<Box
+					mb={1}
+					className='search-city-button'
+				>
 					<BasicButton
 						funcOnClick={handleKeyPress}
 						btnName={"Посмотреть погоду"}
@@ -76,6 +77,7 @@ export function SearchCity() {
 					component='h5'
 					textAlign='center'
 					variant='h5'
+					className='search-city-error'
 				>
 					{error !== "" ? error : "Город не найден..."}
 				</Typography>

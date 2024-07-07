@@ -29,7 +29,6 @@ export const SignUp = () => {
 					dispatch(addUserEmail(response.user.email as string));
 				})
 				.catch((error) => {
-					// const errorCode = error.code;
 					const errorMessage = error.message;
 					setError(errorMessage);
 				});
@@ -39,7 +38,10 @@ export const SignUp = () => {
 	return (
 		<Box component='form'>
 			<MainTitle title='Регистрация' />
-			<Box mb={2}>
+			<Box
+				className='registration-email'
+				mb={2}
+			>
 				<BasicInput
 					placeholder='Введите email'
 					value={email}
@@ -48,7 +50,10 @@ export const SignUp = () => {
 					autoComplete={"username"}
 				/>
 			</Box>
-			<Box mb={2}>
+			<Box
+				className='registration-password'
+				mb={2}
+			>
 				<BasicInput
 					placeholder='Введите пароль'
 					value={password}
@@ -57,7 +62,10 @@ export const SignUp = () => {
 					autoComplete={"new-password"}
 				/>
 			</Box>
-			<Box mb={2}>
+			<Box
+				className='registration-password-copy'
+				mb={2}
+			>
 				<BasicInput
 					placeholder='Повторите пароль'
 					value={copyPassword}

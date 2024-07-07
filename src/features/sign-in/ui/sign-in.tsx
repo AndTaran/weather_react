@@ -34,7 +34,10 @@ export const SignIn = () => {
 	return (
 		<Box component='form'>
 			<MainTitle title='Авторизация' />
-			<Box mb={2}>
+			<Box
+				className='auth-email'
+				mb={2}
+			>
 				<BasicInput
 					placeholder='Введите email'
 					value={email}
@@ -43,7 +46,10 @@ export const SignIn = () => {
 					autoComplete='email'
 				/>
 			</Box>
-			<Box mb={2}>
+			<Box
+				className='auth-password'
+				mb={2}
+			>
 				<BasicInput
 					placeholder='Введите пароль'
 					value={password}

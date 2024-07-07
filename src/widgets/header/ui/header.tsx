@@ -18,11 +18,21 @@ export function Header() {
 					variant='h6'
 					component='h6'
 					sx={{ flexGrow: 1 }}
+					className='title'
 				>
 					{email ? "Прогноз погоды" : "Регистрация/Авторизация"}
 				</Typography>
 
-				{email ? <Typography mr={1}>{email}</Typography> : ""}
+				{email ? (
+					<Typography
+						mr={1}
+						className='email'
+					>
+						{email}
+					</Typography>
+				) : (
+					""
+				)}
 
 				{email && (
 					<BasicButton

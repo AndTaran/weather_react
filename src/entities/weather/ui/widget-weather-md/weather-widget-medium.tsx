@@ -6,48 +6,56 @@ import { WeatherInfo } from "../../model/types";
 
 type WeatherInfoProps = Pick<WeatherInfo, "cityName" | "icon" | "temp" | "weatherDescription">;
 
-export const WeatherWidgetMedium = React.memo(
-	({ icon, temp, weatherDescription, cityName }: WeatherInfoProps) => {
-		const date: Date = new Date();
-		const month: string = date.toLocaleString("ru-RU", { month: "long" });
-		const formattedTemp = Math.round(temp as number);
+export const WeatherWidgetMedium = React.memo(({ icon, temp, weatherDescription, cityName }: WeatherInfoProps) => {
+	const date: Date = new Date();
+	const month: string = date.toLocaleString("ru-RU", { month: "long" });
+	const formattedTemp = Math.round(temp as number);
 
-		return (
-			<Box className='widget'>
-				<Box className='weatherIcon'>
-					<img
-						className='wi wi-day-cloudy'
-						src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
-						alt='иконка погоды'
-					/>
-				</Box>
-				<Box className='weatherInfo'>
+	return (
+		<Box className='widget'>
+			<Box className='weatherIcon'>
+				<img
+					className='wi wi-day-cloudy'
+					src={`https://openweathermap.org/img/wn/${icon}@4x.png`}
+					alt='иконка погоды'
+				/>
+			</Box>
+			<Box className='weatherInfo'>
+				<Typography
+					variant='inherit'
+					className='temperature'
+				>
+					<span>{formattedTemp}&deg;</span>
+				</Typography>
+				<Box className='description'>
 					<Typography
 						variant='inherit'
-						className='temperature'
+						className='weatherCondition'
 					>
-						<span>{formattedTemp}&deg;</span>
+						{weatherDescription}
 					</Typography>
-					<Box className='description'>
-						<Typography
-							variant='inherit'
-							className='weatherCondition'
-						>
-							{weatherDescription}
-						</Typography>
-						<Typography
-							variant='inherit'
-							className='place'
-						>
-							{cityName}
-						</Typography>
-					</Box>
-				</Box>
-				<Box className='date'>
-					<Typography variant='inherit'>{month}</Typography>
-					<Typography variant='inherit'>{date.getDate()}</Typography>
+					<Typography
+						variant='inherit'
+						className='place'
+					>
+						{cityName}
+					</Typography>
 				</Box>
 			</Box>
-		);
-	}
-);
+			<Box className='date'>
+				<Typography
+					className='month'
+					variant='inherit'
+				>
+					{month}
+				</Typography>
+				<Typography
+					className='day'
+					variant='inherit'
+				>
+					{date.getDate()}
+				</Typography>
+			</Box>
+		</Box>
+	);
+});

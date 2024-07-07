@@ -13,6 +13,7 @@ export const WeatherWidgetSmall = React.memo(({ icon, temp, cityName }: WeatherI
 		<Box className='small_widget'>
 			<Box className='widget_icon'>
 				<img
+					className='weather_icon_small'
 					src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
 					alt='Weather icon'
 				/>
@@ -22,7 +23,12 @@ export const WeatherWidgetSmall = React.memo(({ icon, temp, cityName }: WeatherI
 				flexDirection='column'
 				className='widget_info'
 			>
-				<Typography variant='h4'>{formattedTemp}°</Typography>
+				<Typography
+					className='temp_small'
+					variant='h4'
+				>
+					{formattedTemp}°
+				</Typography>
 				<Typography
 					variant='inherit'
 					className='city_name'
